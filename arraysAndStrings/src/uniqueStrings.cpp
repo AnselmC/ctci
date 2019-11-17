@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 
-bool allUnique(std::string &str) {
+bool allUnique(const std::string &str) {
   int i = 0;
-  for (char &letter : str) {
-    for (char &otherLetter : str.substr(i + 1, str.length())) {
+  for (const char &letter : str) {
+    for (const char &otherLetter : str.substr(i + 1, str.length())) {
       if (letter == otherLetter) {
         return false;
       }
