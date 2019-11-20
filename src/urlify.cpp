@@ -13,7 +13,8 @@ void setup_urlify(CLI::App &app) {
   // issued.
   sub->callback([opt]() { run_urlify(*opt); });
 }
-void urlify(char *str, const int length) {
+
+void urlify(char *str, int const length) {
   char *replacement = (char *)std::malloc(3 * sizeof(char));
   replacement[0] = '%';
   replacement[1] = '2';

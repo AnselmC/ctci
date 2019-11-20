@@ -7,7 +7,7 @@ project(cracking-the-coding-interview
 
 include_directories(include/ctci include/thirdparty)
 
-set(SOURCES src/main.cpp src/urlify.cpp)
+set(SOURCES src/main.cpp src/urlify.cpp src/uniqueCharacters.cpp)
 
 add_executable(ctci ${SOURCES})
 

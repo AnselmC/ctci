@@ -11,5 +11,6 @@ struct UrlifyOptions {
 };
 // Function declarations.
 void setup_urlify(CLI::App &app);
+void urlify(char *str, int const length);
 void run_urlify(UrlifyOptions const &opt);
 } // namespace ctci
