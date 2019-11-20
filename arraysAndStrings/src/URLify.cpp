@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+namespace ctci {
+namespace arraysAndStrings {
 void urlify(char *str, const int length) {
   char *replacement = (char *)std::malloc(3 * sizeof(char));
   replacement[0] = '%';
@@ -23,6 +25,8 @@ void urlify(char *str, const int length) {
   }
   std::free(replacement);
 }
+} // namespace arraysAndStrings
+} // namespace ctci
 
 int main(int argc, char **argv) {
   if (argc < 2) {
@@ -34,7 +38,7 @@ int main(int argc, char **argv) {
     int length = str.length() + numWhitespace * 2 + 1;
     char *charArray = (char *)std::malloc(length * sizeof(char));
     std::strcpy(charArray, argv[i]);
-    urlify(charArray, str.length());
+    ctci::arraysAndStrings::urlify(charArray, str.length());
     std::cout << "URLified string: " << charArray << std::endl;
     std::free(charArray);
   }

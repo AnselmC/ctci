@@ -4,6 +4,8 @@
 #include <utility>
 #include <vector>
 
+namespace ctci {
+namespace arraysAndStrings {
 bool checkIfPalindromePermutation(const std::string str) {
 
   std::locale loc;
@@ -41,6 +43,8 @@ bool checkIfPalindromePermutation(const std::string str) {
   }
   return true;
 }
+} // namespace arraysAndStrings
+} // namespace ctci
 
 int main(int argc, char **argv) {
   if (argc < 2) {
@@ -49,7 +53,8 @@ int main(int argc, char **argv) {
   }
   for (int i = 1; i < argc; i++) {
     const std::string str = argv[i];
-    bool isPalindromePerm = checkIfPalindromePermutation(str);
+    bool isPalindromePerm =
+        ctci::arraysAndStrings::checkIfPalindromePermutation(str);
     std::cout << str << " is " << (isPalindromePerm ? "a " : "not a ")
               << "palindrome permutation" << std::endl;
   }

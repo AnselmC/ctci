@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+namespace ctci {
+namespace arraysAndStrings {
 bool checkPermutation(const std::string &str1, const std::string &str2) {
   std::string str2Copy = str2;
   for (const char &letter : str1) {
@@ -20,6 +22,8 @@ bool checkPermutation(const std::string &str1, const std::string &str2) {
   }
   return true;
 }
+} // namespace arraysAndStrings
+} // namespace ctci
 
 int main(int argc, char **argv) {
   if (argc != 3) {
@@ -28,7 +32,7 @@ int main(int argc, char **argv) {
   }
   std::string str1 = argv[1];
   std::string str2 = argv[2];
-  bool isPermutation = checkPermutation(str1, str2);
+  bool isPermutation = ctci::arraysAndStrings::checkPermutation(str1, str2);
   std::cout << str1 << " is " << (isPermutation ? "" : "not ")
             << "a permutation of " << str2 << std::endl;
 

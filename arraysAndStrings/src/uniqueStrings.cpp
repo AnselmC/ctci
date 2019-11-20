@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+namespace ctci {
+namespace arraysAndStrings {
 bool allUnique(const std::string &str) {
   int i = 0;
   for (const char &letter : str) {
@@ -13,6 +15,8 @@ bool allUnique(const std::string &str) {
   }
   return true;
 }
+} // namespace arraysAndStrings
+} // namespace ctci
 
 int main(int argc, char **argv) {
   std::string myStr = "asdfhjklasdf";
@@ -23,7 +27,7 @@ int main(int argc, char **argv) {
   for (int i = 1; i < argc; i++) {
 
     std::string str = argv[i];
-    bool unique = allUnique(str);
+    bool unique = ctci::arraysAndStrings::allUnique(str);
     std::cout << str
               << " has all unique characters: " << (unique ? "True" : "False")
               << std::endl;
