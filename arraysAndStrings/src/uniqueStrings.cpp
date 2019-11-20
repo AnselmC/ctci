@@ -19,7 +19,6 @@ bool allUnique(const std::string &str) {
 } // namespace ctci
 
 int main(int argc, char **argv) {
-  std::string myStr = "asdfhjklasdf";
   if (argc == 1) {
     std::cout << "Enter at least one word to check for uniqueness" << std::endl;
     return -1;
