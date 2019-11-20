@@ -1,10 +1,18 @@
-#include <algorithm>
-#include <cstring>
-#include <iostream>
-#include <string>
+#include "urlify.hpp"
 
 namespace ctci {
-namespace arraysAndStrings {
+void setup_urlify(CLI::App &app) {
+  // Create the option and subcommand objects.
+  auto opt = std::make_shared<UrlifyOptions>();
+  auto sub = app.add_subcommand("urlify", "urlifies a string (1.3)");
+
+  // Add options to sub, binding them to opt.
+  sub->add_option("strings", opt->strings, "Strings to urlify")->required();
+
+  // Set the run function as callback to be called when this subcommand is
+  // issued.
+  sub->callback([opt]() { run_urlify(*opt); });
+}
 void urlify(char *str, const int length) {
   char *replacement = (char *)std::malloc(3 * sizeof(char));
   replacement[0] = '%';
@@ -25,21 +33,17 @@ void urlify(char *str, const int length) {
   }
   std::free(replacement);
 }
-} // namespace arraysAndStrings
-} // namespace ctci
 
-int main(int argc, char **argv) {
-  if (argc < 2) {
-    std::cout << "Need at least one string to URLify" << std::endl;
-  }
-  for (int i = 1; i < argc; i++) {
-    std::string str = argv[i];
+void run_urlify(UrlifyOptions const &opt) {
+
+  for (std::string const &str : opt.strings) {
     int numWhitespace = std::count(str.begin(), str.end(), ' ');
     int length = str.length() + numWhitespace * 2 + 1;
     char *charArray = (char *)std::malloc(length * sizeof(char));
-    std::strcpy(charArray, argv[i]);
-    ctci::arraysAndStrings::urlify(charArray, str.length());
+    std::strcpy(charArray, str.c_str());
+    ctci::urlify(charArray, str.length());
     std::cout << "URLified string: " << charArray << std::endl;
     std::free(charArray);
   }
 }
+} // namespace ctci
