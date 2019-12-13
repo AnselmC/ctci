@@ -1,17 +1,17 @@
-* Cracking the coding interview as a CLI
+# Cracking the coding interview as a CLI
 
 This repo contains my solutions for the interview questions posed in the 6th edition of McDowell's _Cracking the Coding Interview_. The solutions come packed as a CLI creatively named `ctci`. 
 
-** Installation
+## Installation
 Download the source code via git, cd into the repo and
 ``` bash
 cmake .. && make
 ```
 Alternatively you can install it to your path with `make install`.
 
-Currently, the available options are:
 
-** Usage
+## Usage
+Currently, the available options are:
 ``` bash
 A command line tool for running the algorithms from Cracking the Coding Interview 6th Edition
 Usage: ctci [OPTIONS] SUBCOMMAND
