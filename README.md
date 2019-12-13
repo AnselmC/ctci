@@ -5,7 +5,10 @@ This repo contains my solutions for the interview questions posed in the 6th edi
 ## Installation
 Download the source code via git, cd into the repo and
 ``` bash
-cmake .. && make
+mkdir build
+cd build
+cmake ..
+make -j8
 ```
 Alternatively you can install it to your path with `make install`.
 
