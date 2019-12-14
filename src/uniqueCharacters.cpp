@@ -4,9 +4,8 @@ namespace ctci {
 void setup_uniqueCharacters(CLI::App &app) {
   // Create the option and subcommand objects.
   auto opt = std::make_shared<UniqueCharactersOptions>();
-  auto sub =
-      app.add_subcommand("unique-characters",
-                         "checks whether a string has all unique chars (1.2)");
+  auto sub = app.add_subcommand(
+      "unique-chars", "checks whether a string has all unique chars (1.2)");
 
   // Add options to sub, binding them to opt.
   sub->add_option("strings", opt->strings, "Strings to check")->required();
