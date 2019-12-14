@@ -1,3 +1,5 @@
+[![BCH compliance](https://bettercodehub.com/edge/badge/AnselmC/ctci?branch=master)](https://bettercodehub.com/)
+
 # Cracking the coding interview as a CLI
 
 This repo contains my solutions for the interview questions posed in the 6th edition of McDowell's _Cracking the Coding Interview_. The solutions come packed as a CLI creatively named `ctci`. 
