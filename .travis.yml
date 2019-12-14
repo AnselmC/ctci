@@ -1,5 +1,6 @@
 language: cpp
 os: linux
+dist: bionic
 compiler: gcc
 
 # From: https://github.com/codecov/example-cpp11-cmake/blob/master/.travis.yml
