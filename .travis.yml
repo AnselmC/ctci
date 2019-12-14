@@ -1,7 +1,6 @@
 language: cpp
 os: linux
 compiler: gcc
-sudo: true
 
 # From: https://github.com/codecov/example-cpp11-cmake/blob/master/.travis.yml
 cache: # see https://docs.travis-ci.com/user/caching/
