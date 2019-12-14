@@ -59,6 +59,15 @@ TEST(ArraysAndStrings, UniqueCharacters) {
   }
 }
 
+TEST(ArraysAndStrings, runUniqueCharacters) {
+  testing::internal::CaptureStdout();
+  UniqueCharactersOptions opt;
+  opt.strings.push_back("asdf");
+  run_uniqueCharacters(opt);
+  std::string output = testing::internal::GetCapturedStdout();
+  ASSERT_EQ(output, "asdf has all unique characters: True\n");
+}
+
 TEST(ArraysAndStrings, CheckPermutation) {
   std::vector<std::tuple<std::string, std::string, bool>> stringsToCheck;
   stringsToCheck.push_back(std::make_tuple("asdf", "dsaf", true));
@@ -78,6 +87,22 @@ TEST(ArraysAndStrings, CheckPermutation) {
   }
 }
 
+TEST(ArraysAndStrings, runCheckPermutation) {
+  testing::internal::CaptureStdout();
+  CheckPermutationOptions opt;
+  opt.strings.push_back("asdf");
+  run_checkPermutation(opt);
+  std::string output = testing::internal::GetCapturedStdout();
+  ASSERT_EQ(output,
+            "Pass exactly two strings to check if one is a permutation of the "
+            "other\n");
+  testing::internal::CaptureStdout();
+  opt.strings.push_back("fdsa");
+  run_checkPermutation(opt);
+  output = testing::internal::GetCapturedStdout();
+  ASSERT_EQ(output, "asdf is a permutation of fdsa\n");
+}
+
 TEST(ArraysAndStrings, CheckPalindrome) {
   std::map<std::string, bool> stringsToCheck;
   stringsToCheck.insert(std::make_pair("asa", true));
@@ -92,4 +117,12 @@ TEST(ArraysAndStrings, CheckPalindrome) {
   for (auto &elem : stringsToCheck) {
     ASSERT_EQ(checkPalindrome(elem.first), elem.second);
   }
+}
+TEST(ArraysAndStrings, runCheckPalindrome) {
+  testing::internal::CaptureStdout();
+  PalindromePermutationOptions opt;
+  opt.strings.push_back("asdf");
+  run_checkPalindrome(opt);
+  std::string output = testing::internal::GetCapturedStdout();
+  ASSERT_EQ(output, "asdf is not a palindrome permutation\n");
 }
