@@ -1,12 +1,20 @@
-#include <iostream>
-#include <locale>
-#include <string>
-#include <utility>
-#include <vector>
+#include "checkPalindrome.hpp"
 
 namespace ctci {
-namespace arraysAndStrings {
-bool checkIfPalindromePermutation(const std::string str) {
+void setup_checkPalindrome(CLI::App &app) {
+  // Create the option and subcommand objects.
+  auto opt = std::make_shared<PalindromePermutationOptions>();
+  auto sub = app.add_subcommand("check-palindrome",
+                                "checks whether a string has is a palindrome");
+
+  // Add options to sub, binding them to opt.
+  sub->add_option("strings", opt->strings, "Strings to check")->required();
+
+  // Set the run function as callback to be called when this subcommand is
+  // issued.
+  sub->callback([opt]() { run_checkPalindrome(*opt); });
+}
+bool checkPalindrome(std::string const &str) {
 
   std::locale loc;
   bool singleLetterFound = false;
@@ -15,13 +23,13 @@ bool checkIfPalindromePermutation(const std::string str) {
     bool foundPair = false;
     char firstLetter = strCopy.front();
     if (!std::isalpha(firstLetter, loc)) {
-      strCopy.erase(0, 1); // ignore and erase non-alphabet characters
+      strCopy.erase(0, 1); // ignore and erase non-alphabetic characters
       continue;
     }
     int i = 1;
     for (char &otherLetter : strCopy.substr(1)) {
       if (!std::isalpha(otherLetter, loc)) {
-        strCopy.erase(i, 1); // ignore and erase non-alphabet characters
+        strCopy.erase(i, 1); // ignore and erase non-alphabetic characters
         continue;
       }
       if (std::tolower(firstLetter) == std::tolower(otherLetter)) {
@@ -43,19 +51,12 @@ bool checkIfPalindromePermutation(const std::string str) {
   }
   return true;
 }
-} // namespace arraysAndStrings
-} // namespace ctci
 
-int main(int argc, char **argv) {
-  if (argc < 2) {
-    std::cout << "Need at least one string to check if palindrome permutation"
-              << std::endl;
-  }
-  for (int i = 1; i < argc; i++) {
-    const std::string str = argv[i];
-    bool isPalindromePerm =
-        ctci::arraysAndStrings::checkIfPalindromePermutation(str);
+void run_checkPalindrome(PalindromePermutationOptions const &opt) {
+  for (auto &str : opt.strings) {
+    bool isPalindromePerm = ctci::checkPalindrome(str);
     std::cout << str << " is " << (isPalindromePerm ? "a " : "not a ")
               << "palindrome permutation" << std::endl;
   }
 }
+} // namespace ctci

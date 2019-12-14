@@ -1,4 +1,5 @@
 #include "CLI11.hpp"
+#include "checkPalindrome.hpp"
 #include "checkPermutation.hpp"
 #include "uniqueCharacters.hpp"
 #include "urlify.hpp"
@@ -11,6 +12,7 @@ int main(int argc, char **argv) {
   ctci::setup_urlify(app);
   ctci::setup_uniqueCharacters(app);
   ctci::setup_checkPermutation(app);
+  ctci::setup_checkPalindrome(app);
   app.require_subcommand();
 
   CLI11_PARSE(app, argc, argv);

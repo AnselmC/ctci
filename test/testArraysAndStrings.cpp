@@ -1,3 +1,4 @@
+#include "checkPalindrome.hpp"
 #include "checkPermutation.hpp"
 #include "uniqueCharacters.hpp"
 #include "urlify.hpp"
@@ -35,6 +36,15 @@ TEST(ArraysAndStrings, URLify) {
   }
 }
 
+TEST(ArraysAndStrings, runURLify) {
+  UrlifyOptions opt;
+  opt.strings.push_back("Mr. Thomas Smith");
+  testing::internal::CaptureStdout();
+  run_urlify(opt);
+  std::string output = testing::internal::GetCapturedStdout();
+  ASSERT_EQ(output, "URLified string: Mr.%20Thomas%20Smith\n");
+}
+
 TEST(ArraysAndStrings, UniqueCharacters) {
   std::map<std::string, bool> stringsToCheck;
   stringsToCheck.insert(std::make_pair("asdf", true));
@@ -65,5 +75,21 @@ TEST(ArraysAndStrings, CheckPermutation) {
     ASSERT_EQ(checkPermutation(first, second), isPerm)
         << first << " and " << second << " should" << (!isPerm ? " NOT" : "")
         << " be a permutation";
+  }
+}
+
+TEST(ArraysAndStrings, CheckPalindrome) {
+  std::map<std::string, bool> stringsToCheck;
+  stringsToCheck.insert(std::make_pair("asa", true));
+  stringsToCheck.insert(std::make_pair("aaa", true));
+  stringsToCheck.insert(std::make_pair("aa", true));
+  stringsToCheck.insert(std::make_pair("laa", true));
+  stringsToCheck.insert(std::make_pair("lala", true));
+  stringsToCheck.insert(std::make_pair("cala", false));
+  stringsToCheck.insert(std::make_pair("ab", false));
+  stringsToCheck.insert(
+      std::make_pair("$a!", true)); // non-alphabetic chars are ignored
+  for (auto &elem : stringsToCheck) {
+    ASSERT_EQ(checkPalindrome(elem.first), elem.second);
   }
 }

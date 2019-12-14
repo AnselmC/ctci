@@ -30,7 +30,10 @@ if(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
 endif(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
 
 include_directories(include/ctci include/thirdparty)
-set(SOURCES src/urlify.cpp src/uniqueCharacters.cpp src/checkPermutation.cpp)
+set(SOURCES src/urlify.cpp 
+	    src/uniqueCharacters.cpp 
+	    src/checkPermutation.cpp 
+	    src/checkPalindrome.cpp)
 add_library(ctci-lib ${SOURCES})
 add_executable(ctci src/main.cpp)
 target_link_libraries(ctci-lib PUBLIC coverage_config)
