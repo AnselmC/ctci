@@ -1,4 +1,6 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/AnselmC/ctci?branch=master)](https://bettercodehub.com/)
+[![Build Status](https://travis-ci.com/AnselmC/ctci.svg?branch=master)](https://travis-ci.com/AnselmC/ctci)
+[![codecov](https://codecov.io/gh/AnselmC/ctci/branch/master/graph/badge.svg)](https://codecov.io/gh/AnselmC/ctci)
 
 # Cracking the coding interview as a CLI
 
