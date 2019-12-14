@@ -88,7 +88,7 @@ TEST(ArraysAndStrings, CheckPalindrome) {
   stringsToCheck.insert(std::make_pair("cala", false));
   stringsToCheck.insert(std::make_pair("ab", false));
   stringsToCheck.insert(
-      std::make_pair("$a!", true)); // non-alphabetic chars are ignored
+      std::make_pair("$a!", true));  // non-alphabetic chars are ignored
   for (auto &elem : stringsToCheck) {
     ASSERT_EQ(checkPalindrome(elem.first), elem.second);
   }

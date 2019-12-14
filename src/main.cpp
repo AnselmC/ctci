@@ -1,9 +1,9 @@
+#include <iostream>
 #include "CLI11.hpp"
 #include "checkPalindrome.hpp"
 #include "checkPermutation.hpp"
 #include "uniqueCharacters.hpp"
 #include "urlify.hpp"
-#include <iostream>
 
 int main(int argc, char **argv) {
   CLI::App app{

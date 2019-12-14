@@ -3,17 +3,19 @@
 #include <string>
 
 namespace ctci {
-template <class T> struct Node {
+template <class T>
+struct Node {
   T data;
   Node<T> *next = nullptr;
   Node<T>(T data) { this->data = data; };
 };
 
-template <class T> class SinglyLinkedList {
-private:
+template <class T>
+class SinglyLinkedList {
+ private:
   Node<T> *head;
 
-public:
+ public:
   SinglyLinkedList() { this->head = nullptr; }
   ~SinglyLinkedList() {
     Node<T> *tmp;
@@ -46,10 +48,11 @@ public:
     }
   }
 };
-template <class T> class Stack {
+template <class T>
+class Stack {
   Node<T> *top;
 
-public:
+ public:
   Stack() { this->top = nullptr; }
   ~Stack() {
     while (top) {
@@ -78,7 +81,7 @@ public:
   bool isEmpty() { return !top; };
 };
 
-} // namespace ctci
+}  // namespace ctci
 
 int main() {
   std::cout << "Running programm" << std::endl;

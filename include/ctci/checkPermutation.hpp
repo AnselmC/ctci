@@ -1,6 +1,6 @@
-#include "CLI11.hpp"
 #include <iostream>
 #include <string>
+#include "CLI11.hpp"
 
 namespace ctci {
 struct CheckPermutationOptions {
@@ -10,4 +10,4 @@ struct CheckPermutationOptions {
 void setup_checkPermutation(CLI::App &app);
 bool checkPermutation(std::string const &str1, std::string const &str2);
 void run_checkPermutation(CheckPermutationOptions const &opt);
-} // namespace ctci
+}  // namespace ctci

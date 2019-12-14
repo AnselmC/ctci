@@ -15,7 +15,6 @@ void setup_checkPalindrome(CLI::App &app) {
   sub->callback([opt]() { run_checkPalindrome(*opt); });
 }
 bool checkPalindrome(std::string const &str) {
-
   std::locale loc;
   bool singleLetterFound = false;
   std::string strCopy = str;
@@ -23,13 +22,13 @@ bool checkPalindrome(std::string const &str) {
     bool foundPair = false;
     char firstLetter = strCopy.front();
     if (!std::isalpha(firstLetter, loc)) {
-      strCopy.erase(0, 1); // ignore and erase non-alphabetic characters
+      strCopy.erase(0, 1);  // ignore and erase non-alphabetic characters
       continue;
     }
     int i = 1;
     for (char &otherLetter : strCopy.substr(1)) {
       if (!std::isalpha(otherLetter, loc)) {
-        strCopy.erase(i, 1); // ignore and erase non-alphabetic characters
+        strCopy.erase(i, 1);  // ignore and erase non-alphabetic characters
         continue;
       }
       if (std::tolower(firstLetter) == std::tolower(otherLetter)) {
@@ -41,8 +40,8 @@ bool checkPalindrome(std::string const &str) {
       }
       i++;
     }
-    if (!foundPair and singleLetterFound) { // we found a second character with
-                                            // only one occurence
+    if (!foundPair and singleLetterFound) {  // we found a second character with
+                                             // only one occurence
       return false;
     } else if (!singleLetterFound and !foundPair) {
       strCopy.erase(0, 1);
@@ -59,4 +58,4 @@ void run_checkPalindrome(PalindromePermutationOptions const &opt) {
               << "palindrome permutation" << std::endl;
   }
 }
-} // namespace ctci
+}  // namespace ctci

@@ -37,4 +37,4 @@ void run_uniqueCharacters(UniqueCharactersOptions const &opt) {
   }
 }
 
-} // namespace ctci
+}  // namespace ctci

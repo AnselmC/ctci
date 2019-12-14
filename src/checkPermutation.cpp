@@ -53,4 +53,4 @@ bool checkPermutation(std::string const &str1, std::string const &str2) {
   }
   return true;
 }
-} // namespace ctci
+}  // namespace ctci

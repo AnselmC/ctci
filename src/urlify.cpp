@@ -36,7 +36,6 @@ void urlify(char *str, int const length) {
 }
 
 void run_urlify(UrlifyOptions const &opt) {
-
   for (std::string const &str : opt.strings) {
     int numWhitespace = std::count(str.begin(), str.end(), ' ');
     int length = str.length() + numWhitespace * 2 + 1;
@@ -47,4 +46,4 @@ void run_urlify(UrlifyOptions const &opt) {
     std::free(charArray);
   }
 }
-} // namespace ctci
+}  // namespace ctci
