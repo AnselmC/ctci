@@ -1,4 +1,5 @@
 #include "CLI11.hpp"
+#include "checkPermutation.hpp"
 #include "uniqueCharacters.hpp"
 #include "urlify.hpp"
 #include <iostream>
@@ -9,6 +10,7 @@ int main(int argc, char **argv) {
       "Coding Interview 6th Edition"};
   ctci::setup_urlify(app);
   ctci::setup_uniqueCharacters(app);
+  ctci::setup_checkPermutation(app);
   app.require_subcommand();
 
   CLI11_PARSE(app, argc, argv);
