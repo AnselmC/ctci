@@ -9,13 +9,13 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-
 # Code Coverage Configuration
 add_library(coverage_config INTERFACE)
 
 # From: https://github.com/codecov/example-cpp11-cmake/blob/master/CMakeLists.txt
-option(CODE_COVERAGE "Enable coverage reporting" OFF)
+option(CODE_COVERAGE "Enable coverage reporting" ON)
 if(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+  message(STATUS "Enabled coverage repoting")
   # Add required flags (GCC & LLVM/Clang)
   target_compile_options(coverage_config INTERFACE
     -O0        # no optimization
@@ -29,12 +29,14 @@ if(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   endif()
 endif(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
 
-
 include_directories(include/ctci include/thirdparty)
 set(SOURCES src/urlify.cpp src/uniqueCharacters.cpp src/checkPermutation.cpp)
 add_library(ctci-lib ${SOURCES})
 add_executable(ctci src/main.cpp)
+target_link_libraries(ctci-lib PUBLIC coverage_config)
 target_link_libraries(ctci ctci-lib)
+
+
 
 option(BUILD_TESTS "Toggle test build manually" ON)
 
